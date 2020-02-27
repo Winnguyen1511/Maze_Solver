@@ -6,13 +6,13 @@ University: Danang University of Sciences and Technology (DUT)
 Nation: Vietnam
 
 ##  ABOUT
-Here is the project I learn from Computerphile, Mike Pound, here is his github [Mike Pound](https://github.com/mikepound/)
+Here is the project I learned from Computerphile, Mike Pound, here is his github [Mike Pound](https://github.com/mikepound/)
 
 I created this project to learn Python3 and dijkstra algorithm, however I tried to approach
 in different way:  
 - I load the image and create nodes from the maze similar to Mike.  
 Then I load all the connections of nodes into a cache "maze_origin.txt"  
-- My djkstra.c writen in C language by myself, will read the cache and try to solve  
+- My dijkstra.c writen in C language by myself, will read the cache and try to solve  
 the maze, then it write the solution in a cache "maze_solution.txt"  
 - The mazeSaver.py will read the "maze_solution.txt" to write the solution in the image  
   
