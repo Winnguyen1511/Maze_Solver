@@ -1,8 +1,8 @@
 # Maze solver 
-  Author: Nguyen Huynh Dang Khoa - Victor Nguyen
-  Major: Embedded System
-  University: Danang University of Sciences and Technology (DUT)
-  Nation: Vietnam
+Author: Nguyen Huynh Dang Khoa - Victor Nguyen
+Major: Embedded System
+University: Danang University of Sciences and Technology (DUT)
+Nation: Vietnam
 
 ##  ABOUT
 Here is the project I learn from Computerphile, Mike Pound, here is his github:
