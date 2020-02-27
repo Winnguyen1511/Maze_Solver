@@ -6,8 +6,8 @@ University: Danang University of Sciences and Technology (DUT)
 Nation: Vietnam
 
 ##  ABOUT
-Here is the project I learn from Computerphile, Mike Pound, here is his github:
-github.com/mikepound/
+Here is the project I learn from Computerphile, Mike Pound, here is his github  
+[Mike Pound](https://github.com/mikepound/)
 
 I created this project to learn Python3 and dijkstra algorithm, however I tried to approach
 in different way:  
