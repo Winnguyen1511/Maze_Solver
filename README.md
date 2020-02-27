@@ -1,4 +1,4 @@
-# Maze solver 
+## Maze solver 
 Author: Nguyen Huynh Dang Khoa - Victor Nguyen
 Major: Embedded System
 University: Danang University of Sciences and Technology (DUT)
