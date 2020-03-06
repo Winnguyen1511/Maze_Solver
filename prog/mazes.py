@@ -13,14 +13,14 @@ class Node:
         #self.Len = [0,0,0,0]
 
 class Maze:
-    def __init__(self, im, cache_map, cache_start_end, start, end):
+    def __init__(self, im, cache_map, start):
         super().__init__()
         self.fd = open(cache_map, 'w')
         self.fd.write("*************\n")
         writeBuffer = None
         start_pos, end_pos = 0, 0
         start = str(start)
-        end = str(end)
+        
         
         if start == TOP_STR:
             start_pos = North
@@ -33,17 +33,7 @@ class Maze:
         else:
             print("Error: start_str")
             return None
-        if end == TOP_STR:
-            end_pos = North
-        elif end == BOTTOM_STR:
-            end_pos = South
-        elif end == LEFT_STR:
-            end_pos = West
-        elif end == RIGHT_STR:
-            end_pos = East
-        else:
-            print("Error: end_str")
-            return None
+
 
         width = im.size[0]
         height = im.size[1]
@@ -258,27 +248,25 @@ class Maze:
 
                     nodeCount += 1
                 #}
-        #Make the last node: End node
-        if end_pos == South:
-        #{    
-            rowOffset = (height - 1) * width
-            for x in range(1, width - 1):
-                if data[rowOffset + x] > 0:
-                    self.end = Node(nodeCount, (height - 1, x))
-                    t = topnodes[x]
-                    if t != None:
-                        len = self.end.position[0] - t.position[0]
-                        #writeBuffer = str(self.end.numNode) + " " + str(t.numNode) + " " + str(len) + "\n"
-                        writeBuffer = str(self.end.numNode) + " " + str(self.end.position[0]) + " " + str(self.end.position[1])\
-                                        + " " + str(t.numNode) + " " + str(t.position[0]) + " " + str(t.position[1]) \
-                                        + " " + str(len) + "\n"
-                        self.fd.write(writeBuffer)
-                        writeBuffer = None
-                    t.neighbours[South] = self.end
-                    self.end.neighbours[North] = t
-                    nodeCount += 1
-                    break
-        #}
+        #Make the last node: End node    
+        rowOffset = (height - 1) * width
+        for x in range(1, width - 1):
+            if data[rowOffset + x] > 0:
+                self.end = Node(nodeCount, (height - 1, x))
+                t = topnodes[x]
+                if t != None:
+                    len = self.end.position[0] - t.position[0]
+                    #writeBuffer = str(self.end.numNode) + " " + str(t.numNode) + " " + str(len) + "\n"
+                    writeBuffer = str(self.end.numNode) + " " + str(self.end.position[0]) + " " + str(self.end.position[1])\
+                                    + " " + str(t.numNode) + " " + str(t.position[0]) + " " + str(t.position[1]) \
+                                    + " " + str(len) + "\n"
+                    self.fd.write(writeBuffer)
+                    writeBuffer = None
+                t.neighbours[South] = self.end
+                self.end.neighbours[North] = t
+                nodeCount += 1
+                break
+        
         self.nodeCount = nodeCount
         self.fd.seek(0, 0)
         self.fd.write(str(self.nodeCount))
