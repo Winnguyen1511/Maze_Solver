@@ -433,7 +433,7 @@ int writeSolution(int *fdOut,int *num, node_t* dijkstra_list, char* pathOut)
     int prev = dijkstra_list[numNode -1].prev_node;
     int cur = dijkstra_list[numNode - 1].this_node;
     //Write from the end Node
-    while(dijkstra_list[cur].y != 0)
+    while(dijkstra_list[cur].this_node != 0)
     {
         char YChar[HEADER_LEN];
         char XChar[HEADER_LEN];

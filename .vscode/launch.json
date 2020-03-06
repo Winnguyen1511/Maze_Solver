@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
+            "args": ["/home/khoa/CodeDao/mazeSolver/cache/maze_origin.txt", "/home/khoa/CodeDao/mazeSolver/cache/maze_solution.txt"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

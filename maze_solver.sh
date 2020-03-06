@@ -17,22 +17,28 @@ DIJKSTRA_PATH="prog/dijkstra"
 
 CACHE_ORGIN_PATH=$PWD/"cache/maze_origin.txt"
 CACHE_SOLUTION_PATH=$PWD/"cache/maze_solution.txt"
-
+CACHE_START_END_PATH=$PWD/"cache/maze_start_end.txt"
 SOLUTION_IMAGE_DIR=$PWD/"solution/"
 helpFunction()
 {
-    echo "Usage: ./maze_solver.sh [input_file]"
+    echo "Usage: ./maze_solver.sh [input_file] [start] [end]"
 }
-
+START="top"
+END="bottom"
 if [ "$1" == "--help" ]; then
     helpFunction
     exit
+fi
+if [ "$2" != "" ]; then
+    START=$2
+fi 
+if [ "$3" != "" ]; then
+    END=$3
 fi
 
 if [ "$1" == "" ]; then
     echo "Arguments required"
     helpFunction
-    exit
 elif [ "$1" == "--clear" ]; then
     rm -rf $CACHE_DIR
     rm -f $DIJKSTRA_PATH
@@ -44,7 +50,7 @@ else
     if [ ! -d $CACHE_DIR ]; then
         mkdir $CACHE_DIR
     fi
-    python3 $READER_PATH $RESOURCE_DIR/$1 $CACHE_ORGIN_PATH
+    python3 $READER_PATH $RESOURCE_DIR/$1 $CACHE_ORGIN_PATH $CACHE_START_END_PATH $START $END
     sleep 1
     if [ ! -f $DIJKSTRA_PATH ];then
         gcc $DIJKSTRA_PATH.c -o $DIJKSTRA_PATH

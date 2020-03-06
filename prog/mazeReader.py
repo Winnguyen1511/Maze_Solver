@@ -4,22 +4,28 @@ from mazes import *
 
 import argparse
 
-def mazeReader(input_path, cache_file):
+def mazeReader(input_path, cache_map, cache_start_end, start, end):
     im = Image.open(input_path)
     #data = im.getdata(0)
-    maze = Maze(im, cache_file)
+    maze = Maze(im, cache_map, cache_start_end, start, end)
     return maze
 
 def main():
 
     parser = argparse.ArgumentParser()
-
     parser.add_argument("input_file")
-    parser.add_argument("cache")
+    parser.add_argument("cache_map")
+    parser.add_argument("cache_start_end")
+    parser.add_argument("start")
+    parser.add_argument("end")
+
     args = parser.parse_args()
     print("Reading Image...")
-    myMaze = mazeReader(args.input_file, args.cache);
-
+    myMaze = mazeReader(args.input_file, args.cache_map, args.cache_start_end, args.start, args.end);
+    if(myMaze == None):
+        print("Error creating maze")
+        return -1
     print("Maze generated in memory success!")
+    return 0
     
 main()

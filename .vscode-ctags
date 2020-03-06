@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/e0a976d7/
+ERROR	prog/dijkstra.c	/^#define ERROR /;"	d	file:
+HEADER_LEN	prog/dijkstra.c	/^#define HEADER_LEN /;"	d	file:
+INPUT_MAP	prog/dijkstra.c	/^#define INPUT_MAP /;"	d	file:
+MAX_BUFFER_SIZE	prog/dijkstra.c	/^#define MAX_BUFFER_SIZE /;"	d	file:
+MAZE_ORIGIN_FLAGS	prog/dijkstra.c	/^#define MAZE_ORIGIN_FLAGS /;"	d	file:
+MAZE_ORIGIN_PATH	prog/dijkstra.c	/^#define MAZE_ORIGIN_PATH /;"	d	file:
+MAZE_SOLUTION_FLAGS	prog/dijkstra.c	/^#define MAZE_SOLUTION_FLAGS /;"	d	file:
+MAZE_SOLUTION_PATH	prog/dijkstra.c	/^#define MAZE_SOLUTION_PATH /;"	d	file:
+N_prime_set	prog/dijkstra.c	/^int* N_prime_set;$/;"	v	typeref:typename:int *
+PERMS	prog/dijkstra.c	/^#define PERMS /;"	d	file:
+SUCCESS	prog/dijkstra.c	/^#define SUCCESS /;"	d	file:
+count	prog/dijkstra.c	/^int count=0;$/;"	v	typeref:typename:int
+creatMazeOrigin	prog/dijkstra.c	/^int creatMazeOrigin(int *fdIn, int*num, char*pathIn)$/;"	f	typeref:typename:int
+itoa	prog/dijkstra.c	/^int itoa(int num, char* str)$/;"	f	typeref:typename:int
+main	prog/dijkstra.c	/^int main(int argc, char**argv)$/;"	f	typeref:typename:int
+map	prog/dijkstra.c	/^int**map;$/;"	v	typeref:typename:int **
+min_node	prog/dijkstra.c	/^node_t min_node;$/;"	v	typeref:typename:node_t
+node_struct	prog/dijkstra.c	/^typedef struct node_struct {$/;"	s	file:
+node_t	prog/dijkstra.c	/^}node_t;$/;"	t	typeref:struct:node_struct	file:
+num_node	prog/dijkstra.c	/^int num_node=0, start_node = 0, tmp_node_num;$/;"	v	typeref:typename:int
+path_len	prog/dijkstra.c	/^    int path_len;$/;"	m	struct:node_struct	typeref:typename:int	file:
+prev_node	prog/dijkstra.c	/^    int prev_node;$/;"	m	struct:node_struct	typeref:typename:int	file:
+readMazeOrigin	prog/dijkstra.c	/^int readMazeOrigin(int *fdIn, int**maze, node_t* dijkstra_list)$/;"	f	typeref:typename:int
+reverse	prog/dijkstra.c	/^void reverse(char *str, int length) $/;"	f	typeref:typename:void
+start_node	prog/dijkstra.c	/^int num_node=0, start_node = 0, tmp_node_num;$/;"	v	typeref:typename:int
+swap	prog/dijkstra.c	/^void swap(char *a, char* b)$/;"	f	typeref:typename:void
+this_node	prog/dijkstra.c	/^    int this_node;$/;"	m	struct:node_struct	typeref:typename:int	file:
+tmp_node_num	prog/dijkstra.c	/^int num_node=0, start_node = 0, tmp_node_num;$/;"	v	typeref:typename:int
+writeSolution	prog/dijkstra.c	/^int writeSolution(int *fdOut,int *num, node_t* dijkstra_list, char* pathOut)$/;"	f	typeref:typename:int
+x	prog/dijkstra.c	/^    int y, x;$/;"	m	struct:node_struct	typeref:typename:int	file:
+y	prog/dijkstra.c	/^    int y, x;$/;"	m	struct:node_struct	typeref:typename:int	file:
