@@ -78,7 +78,12 @@ class Maze:
                     break
         #}
         elif start_pos == East:
-            pass
+            for y in range(1, height - 1):
+                if(data[y * width + width - 1] > 0):
+                    self.start = Node(0, (y, width - 1))
+                    rightnodes[y] = self.start
+                    nodeCount += 1
+                    break
         elif start_pos == South:
             pass
         else:
@@ -126,10 +131,27 @@ class Maze:
                             leftNode.neighbours[East] = n
                             n.neighbours[West] = leftNode
                             leftNode = n
+
+                            #Try to handle right-allied entrance:
+                            if x == width - 2:
+                                if rightnodes[y] != None:
+                                #{
+                                    
+                                    rightNode = rightnodes[y]
+                                    len =  rightNode.position[1] - n.position[1] 
+                                    writeBuffer = str(n.numNode) + " " + str(n.position[0]) + " " + str(n.position[1])\
+                                        + " " + str(rightNode.numNode) + " " + str(rightNode.position[0]) + " " + str(rightNode.position[1]) \
+                                        + " " + str(len) + "\n"
+                                    self.fd.write(writeBuffer)
+                                    writeBuffer = None
+                                    n.neighbours[East] = rightNode
+                                    rightNode.neighbours[West] = n
+                                    rightNode = None   
+                                #}
                         #}
                             #nodeCount += 1
                     else:
-                        #PATH PATH WALL
+                    #PATH PATH WALL
                     #{    
                         n = Node(nodeCount, (y,x))
                         if leftNode != None:
@@ -152,6 +174,7 @@ class Maze:
                         n = Node(nodeCount, (y,x))
                         if (x == 1):
                         #{
+                            #Try to handle left-allied entrance:
                             if leftnodes[y] != None:
                                 # print("Have the node:", leftnodes[y].numNode,"(",\
                                 #     leftnodes[y].position[0], ", ", leftnodes[y].position[1],")")
@@ -165,7 +188,24 @@ class Maze:
                                 writeBuffer = None
                                 leftNode.neighbours[East] = n
                                 n.neighbours[West] = leftNode
-                        #}                                           
+                        #}
+
+                        #Try to handle right-allied entrance:
+                        if x == width - 2:
+                            if rightnodes[y] != None:
+                            #{
+                                
+                                rightNode = rightnodes[y]
+                                len = rightNode.position[1] - n.position[1]
+                                writeBuffer = str(n.numNode) + " " + str(n.position[0]) + " " + str(n.position[1])\
+                                    + " " + str(rightNode.numNode) + " " + str(rightNode.position[0]) + " " + str(rightNode.position[1]) \
+                                    + " " + str(len) + "\n"
+                                self.fd.write(writeBuffer)
+                                writeBuffer = None
+                                n.neighbours[East] = rightNode
+                                rightNode.neighbours[West] = n
+                                rightNode = None   
+                            #}                                           
                         leftNode = n
                         #nodeCount += 1
                     else:
@@ -173,6 +213,8 @@ class Maze:
                         if (data[rowAboveOffset + x] == 0) or (data[rowBelowOffset + x] == 0):
                             n = Node(nodeCount,(y,x))   
                             #nodeCount += 1
+
+                        #Try to handle left-allied entrance:    
                         if (x == 1):
                         #{
                             if leftnodes[y] != None:

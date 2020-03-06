@@ -1,6 +1,6 @@
 from PIL import Image
 import argparse
-
+import random
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("input_file")
@@ -37,8 +37,19 @@ def main():
     else:
         pass
     
-    y = int(args.y)
-    x = int(args.x)
+    if args.y != "rand":
+        y = int(args.y)
+        x = int(args.x)
+    else:
+        if args.x == "top":
+            y = 0
+            x = random.randint(1, width - 2)
+        elif args.x == "left":
+            y = random.randint(1, height - 2)
+            x = 0
+        elif args.x == "right":
+            y = random.randint(1, height - 2)
+            x = width - 1
     impixcels[x, y] = px
     im.save(args.output_file)
 
