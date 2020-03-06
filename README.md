@@ -37,7 +37,7 @@ _example: ./maze_solver.sh resource/normal.png
 - python3 prog/mazeConfig.py [input_file] [output_file] y x color  
 _example: python3 prog/mazeConfig.py resource/tiny.png resource/tiny_left_mod.png rand left white  
           -> This will clear the old entrance and create randomly new entrance in the left border.  
-          python3 prog/mazeConfig.py resource/tiny.png resource/tiny_mod.png 1 0 white
+          python3 prog/mazeConfig.py resource/tiny.png resource/tiny_mod.png 1 0 white  
           -> By this you can change any pixel(x, y) in the maze by "color", I just code for "white" and "black"  
           you can develop it further   
 # Hope you like it. Good luck  
