@@ -12,6 +12,7 @@ def main():
     args = parser.parse_args()
     im = Image.open(args.input_file)
     data = list(im.getdata(0))
+    # print(data)
     width = im.size[0]
     height = im.size[1]
 
@@ -21,12 +22,12 @@ def main():
     #Try to clean the old entrance of the maze
     #If there are any entrance on Left, top, right, clear all
     for x in range(1, width-1):
-        if data[x] == 1:
+        if data[x] > 0:
             impixcels[x, 0] = (0, 0, 0)
     for y in range(1, height -1):
-        if data[y * width] == 1:
+        if data[y * width] > 0:
             impixcels[0, y] = (0, 0, 0)
-        if data[y*width + width - 1] == 1:
+        if data[y*width + width - 1] > 0:
             impixcels[width - 1, y] = (0, 0, 0) 
     color = args.color
     px = (255, 255, 255)

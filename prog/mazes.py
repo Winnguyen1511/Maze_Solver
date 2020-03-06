@@ -40,7 +40,7 @@ class Maze:
         nodeCount = 0;
         indexCount = 0;
         data = list(im.getdata(0))
-
+        # print("from mazes:", data)
         self.start = None
         self.end = None
 

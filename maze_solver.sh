@@ -21,17 +21,13 @@ CACHE_SOLUTION_PATH=$PWD/"cache/maze_solution.txt"
 SOLUTION_IMAGE_DIR=$PWD/"solution/"
 helpFunction()
 {
-    echo "Usage: ./maze_solver.sh [input_file] [start] "
+    echo "Usage: ./maze_solver.sh [input_file] "
 }
-START="top"
 
 if [ "$1" == "--help" ]; then
     helpFunction
     exit
 fi
-if [ "$2" != "" ]; then
-    START=$2
-fi 
 
 
 if [ "$1" == "" ]; then
@@ -48,7 +44,7 @@ else
     if [ ! -d $CACHE_DIR ]; then
         mkdir $CACHE_DIR
     fi
-    python3 $READER_PATH $RESOURCE_DIR/$1 $CACHE_ORGIN_PATH $START 
+    python3 $READER_PATH $RESOURCE_DIR/$1 $CACHE_ORGIN_PATH 
     sleep 1
     if [ ! -f $DIJKSTRA_PATH ];then
         gcc $DIJKSTRA_PATH.c -o $DIJKSTRA_PATH
