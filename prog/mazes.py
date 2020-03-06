@@ -151,6 +151,7 @@ class Maze:
                         #WALL PATH PATH
                         n = Node(nodeCount, (y,x))
                         if (x == 1):
+                        #{
                             if leftnodes[y] != None:
                                 # print("Have the node:", leftnodes[y].numNode,"(",\
                                 #     leftnodes[y].position[0], ", ", leftnodes[y].position[1],")")
@@ -163,14 +164,35 @@ class Maze:
                                 self.fd.write(writeBuffer)
                                 writeBuffer = None
                                 leftNode.neighbours[East] = n
-                                n.neighbours[West] = leftNode                                           
+                                n.neighbours[West] = leftNode
+                        #}                                           
                         leftNode = n
                         #nodeCount += 1
                     else:
                         #WALL PATH WALL
                         if (data[rowAboveOffset + x] == 0) or (data[rowBelowOffset + x] == 0):
-                            n = Node(nodeCount,(y,x))
+                            n = Node(nodeCount,(y,x))   
                             #nodeCount += 1
+                        if (x == 1):
+                        #{
+                            if leftnodes[y] != None:
+                            #{    
+                                n = Node(nodeCount,(y,x)) 
+                                # print("Have the node:", leftnodes[y].numNode,"(",\
+                                #     leftnodes[y].position[0], ", ", leftnodes[y].position[1],")")
+                                leftNode = leftnodes[y]
+                                len = n.position[1] - leftNode.position[1]
+                                #writeBuffer = str(n.numNode) + " " + str(leftNode.numNode) + " " + str(len) + "\n"
+                                writeBuffer = str(n.numNode) + " " + str(n.position[0]) + " " + str(n.position[1])\
+                                            + " " + str(leftNode.numNode) + " " + str(leftNode.position[0]) + " " + str(leftNode.position[1]) \
+                                            + " " + str(len) + "\n"
+                                self.fd.write(writeBuffer)
+                                writeBuffer = None
+                                leftNode.neighbours[East] = n
+                                n.neighbours[West] = leftNode
+                                leftNode = None
+                            #}
+                        #}                         
                 #}
                 if n != None:
                 #{    
