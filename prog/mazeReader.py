@@ -10,7 +10,7 @@ def mazeReader(input_path, cache_map):
     width = im.size[0]
     height = im.size[1]
     # print(data)
-    start = "top"
+    start = "bottom"
     for x in range(1, width-1):
         if data[x] > 0:
             start = "top"
@@ -23,7 +23,7 @@ def mazeReader(input_path, cache_map):
             #print("here")
             start = "right"
             break 
-
+            
     maze = Maze(im, cache_map, start)
     return maze
 

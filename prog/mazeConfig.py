@@ -51,6 +51,23 @@ def main():
         elif args.x == "right":
             y = random.randint(1, height - 2)
             x = width - 1
+        elif args.x == "bottom":
+            y = height - 1
+            #start_pos, end_pos = 0, 0
+            bottom_pos = []
+            for i in range(1, width - 1):
+                if (data[(height - 1) * width + i] > 0):
+                    bottom_pos.append(i)
+            
+            if len(bottom_pos) > 1:
+                for i in range (0, len(bottom_pos) - 1):
+                    impixcels[bottom_pos[i], y] = (0, 0, 0)
+            while True:
+                x = random.randint(1, width - 2)
+                if x != bottom_pos[len(bottom_pos) - 1]:
+                    break
+            
+
     impixcels[x, y] = px
     im.save(args.output_file)
 

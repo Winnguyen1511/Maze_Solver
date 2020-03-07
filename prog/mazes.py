@@ -75,7 +75,12 @@ class Maze:
                     nodeCount += 1
                     break
         elif start_pos == South:
-            pass
+            for x in range(1, width - 1):
+                if (data[(height - 1) * (width) + x] > 0):
+                    self.start = Node(0, (height - 1, x))
+                    bottomnodes[x] = self.start
+                    nodeCount += 1
+                    break
         else:
             print("Error: start_pos")
             return None
@@ -252,20 +257,42 @@ class Maze:
         rowOffset = (height - 1) * width
         for x in range(1, width - 1):
             if data[rowOffset + x] > 0:
-                self.end = Node(nodeCount, (height - 1, x))
-                t = topnodes[x]
-                if t != None:
-                    len = self.end.position[0] - t.position[0]
-                    #writeBuffer = str(self.end.numNode) + " " + str(t.numNode) + " " + str(len) + "\n"
-                    writeBuffer = str(self.end.numNode) + " " + str(self.end.position[0]) + " " + str(self.end.position[1])\
-                                    + " " + str(t.numNode) + " " + str(t.position[0]) + " " + str(t.position[1]) \
-                                    + " " + str(len) + "\n"
-                    self.fd.write(writeBuffer)
-                    writeBuffer = None
-                t.neighbours[South] = self.end
-                self.end.neighbours[North] = t
-                nodeCount += 1
-                break
+            #{
+                if (bottomnodes[x] == None):
+                #{
+                    self.end = Node(nodeCount, (height - 1, x))
+                    t = topnodes[x]
+                    if t != None:
+                        len = self.end.position[0] - t.position[0]
+                        #writeBuffer = str(self.end.numNode) + " " + str(t.numNode) + " " + str(len) + "\n"
+                        writeBuffer = str(self.end.numNode) + " " + str(self.end.position[0]) + " " + str(self.end.position[1])\
+                                        + " " + str(t.numNode) + " " + str(t.position[0]) + " " + str(t.position[1]) \
+                                        + " " + str(len) + "\n"
+                        self.fd.write(writeBuffer)
+                        writeBuffer = None
+                    t.neighbours[South] = self.end
+                    self.end.neighbours[North] = t
+                    nodeCount += 1
+                    break
+                #}
+                else:
+                #{
+                    t = topnodes[x]
+                    bottomNode = bottomnodes[x]
+                    if t != None:
+                        len = t.position[0] - bottomNode.position[0]
+                        writeBuffer = str(t.numNode) + " " + str(t.position[0]) + " " + str(t.position[1])\
+                                        + " " + str(bottomNode.numNode) + " " + str(bottomNode.position[0]) + " " + str(bottomNode.position[1])\
+                                        + " " + str(len) + "\n"
+                        self.fd.write(writeBuffer)
+                        writeBuffer = None
+                    t.neighbours[South] = bottomNode
+                    bottomNode.neighbours[North] = t
+                    
+                #}
+                
+            #}
+                
         
         self.nodeCount = nodeCount
         self.fd.seek(0, 0)
