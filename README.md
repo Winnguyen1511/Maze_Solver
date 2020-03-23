@@ -20,13 +20,16 @@ the maze, then it write the solution in a cache "maze_solution.txt"
 To do this, we can control how much memory exactly needed to solve a Dijkstra problems,   instead  
 of using Python with Priority_queue and Fibonacy Heap as Mike. This is the most advantage  
 of C programming, which is very powerful when we try to program in Embedded System.   
-Then I updated version 2, which can read even real maze from your phone camera.  
+- Then I updated version 2, which can read even real maze from your phone camera.  
 The library I used is OpenCV 2, it will change your photo to GRAY and so that easier to handle in  
-the project.  
+the project. Most image from cellphone is around 400-400 pixcels so you will need to reduce the resolution  
+of the image for easier solving.  
 
 ## NOTE
 This project is not very optimized, because I don't have much time to develop this. Hope you  
 can optimize for me the dijkstra.c so that it can run more sufficiently.  
+Currently, this can solve maze around 400x400 pixcels. So if you will need to reduce the resolution by option  
+-p if your maze is simple but high resolution.  
 
 ## HOW THIS WORK ?
 
