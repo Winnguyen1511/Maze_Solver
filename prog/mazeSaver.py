@@ -55,6 +55,6 @@ def main():
     solution_image_path += "solve_"+ os.path.basename(input_file_path)
     mazeSaver(input_file_path, cache_path, solution_image_path)
     #mazeSaver(originImagePath, solvedImagePath, args.solution_file)
-    print("Image Save success!")
+    print(">>Image Save success!")
 
 main()

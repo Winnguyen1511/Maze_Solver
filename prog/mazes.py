@@ -123,9 +123,9 @@ class Maze:
                                                  + " " + str(len) + "\n"
                                 self.fd.write(writeBuffer)
                                 writeBuffer = None
-                            leftNode.neighbours[East] = n
-                            n.neighbours[West] = leftNode
-                            leftNode = n
+                                leftNode.neighbours[East] = n
+                                n.neighbours[West] = leftNode
+                                leftNode = n
 
                             #Try to handle right-allied entrance:
                             if x == width - 2:
@@ -157,9 +157,9 @@ class Maze:
                                             + " " + str(len) + "\n"
                             self.fd.write(writeBuffer)
                             writeBuffer = None
-                        leftNode.neighbours[East] = n
-                        n.neighbours[West] = leftNode
-                        leftNode = None
+                            leftNode.neighbours[East] = n
+                            n.neighbours[West] = leftNode
+                            leftNode = None
                         #nodeCount += 1
                     #}
                 else:
@@ -243,8 +243,8 @@ class Maze:
                                             + " " + str(len) + "\n"
                             self.fd.write(writeBuffer)
                             writeBuffer = None
-                        t.neighbours[South] = n
-                        n.neighbours[North] = t
+                            t.neighbours[South] = n
+                            n.neighbours[North] = t
 
                     if(data[rowBelowOffset + x] > 0):
                         topnodes[x] = n
@@ -270,10 +270,10 @@ class Maze:
                                         + " " + str(len) + "\n"
                         self.fd.write(writeBuffer)
                         writeBuffer = None
-                    t.neighbours[South] = self.end
-                    self.end.neighbours[North] = t
-                    nodeCount += 1
-                    break
+                        t.neighbours[South] = self.end
+                        self.end.neighbours[North] = t
+                        nodeCount += 1
+                        break
                 #}
                 else:
                 #{
@@ -286,8 +286,8 @@ class Maze:
                                         + " " + str(len) + "\n"
                         self.fd.write(writeBuffer)
                         writeBuffer = None
-                    t.neighbours[South] = bottomNode
-                    bottomNode.neighbours[North] = t
+                        t.neighbours[South] = bottomNode
+                        bottomNode.neighbours[North] = t
                     
                 #}
                 

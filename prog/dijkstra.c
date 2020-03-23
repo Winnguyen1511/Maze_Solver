@@ -47,12 +47,12 @@ int main(int argc, char**argv)
     #ifdef INPUT_MAP
     if(argc < 3)
     {
-        printf("Usage: ./dijkstra [cache_origin] [cache_solution]\n");
+        printf(">>Dijkstra: Usage: ./dijkstra [cache_origin] [cache_solution]\n");
         return ERROR;
     }
     if(!creatMazeOrigin(&fdIn, &num_node, argv[1]))
     {
-        printf("Cannot create maze from %s\n", argv[1]);
+        printf(">>Dijkstra: Cannot create maze from %s\n", argv[1]);
         return ERROR;
     }
     #else
@@ -83,7 +83,7 @@ int main(int argc, char**argv)
     #ifdef INPUT_MAP
     if(!readMazeOrigin(&fdIn, map, list))
     {
-        printf("Cannot read maze origin\n");
+        printf(">>Dijkstra: Cannot read maze origin\n");
         return ERROR;
     }
     #else
@@ -207,7 +207,7 @@ int main(int argc, char**argv)
     #ifdef INPUT_MAP
     if(!writeSolution(&fdOut,&num_node, list, argv[2]))
     {
-        printf("Cannot write solution to %s\n", argv[2]);
+        printf(">>Dijkstra: Cannot write solution to %s\n", argv[2]);
         return ERROR;
     }
     #else
@@ -217,7 +217,7 @@ int main(int argc, char**argv)
         return ERROR;
     }
     #endif
-    printf("Dijkstra solve success!\n");
+    printf(">>Dijkstra: Dijkstra solve success!\n");
     //close(fdIn); close(fdOut);
     return SUCCESS;
 }

@@ -39,7 +39,7 @@ def main():
     if(myMaze == None):
         print("Error creating maze")
         return -1
-    print("Maze generated in memory success!")
+    print(">>Maze generated in memory success!")
     return 0
     
 main()
