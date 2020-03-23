@@ -20,6 +20,9 @@ the maze, then it write the solution in a cache "maze_solution.txt"
 To do this, we can control how much memory exactly needed to solve a Dijkstra problems,   instead  
 of using Python with Priority_queue and Fibonacy Heap as Mike. This is the most advantage  
 of C programming, which is very powerful when we try to program in Embedded System.   
+Then I updated version 2, which can read even real maze from your phone camera.  
+The library I used is OpenCV 2, it will change your photo to GRAY and so that easier to handle in  
+the project.  
 
 ## NOTE
 This project is not very optimized, because I don't have much time to develop this. Hope you  
@@ -28,6 +31,7 @@ can optimize for me the dijkstra.c so that it can run more sufficiently.
 ## HOW THIS WORK ?
 
 - ./maze_solver.sh [input_file]  
+- ./maze_solver.sh -p [reduce_percent] [input_file]
   
 _example: ./maze_solver.sh resource/normal.png  
           ./maze_solver.sh resource/combo400/png  
@@ -40,4 +44,7 @@ _example: python3 prog/mazeConfig.py resource/tiny.png resource/tiny_left_mod.pn
           python3 prog/mazeConfig.py resource/tiny.png resource/tiny_mod.png 1 0 white  
           -> By this you can change any pixel(x, y) in the maze by "color", I just code for "white" and "black"  
           you can develop it further   
+_example: ./maze_solver.sh -p 20 raw_image/tiny.png  
+          -> This will take raw image from the directory raw_image and reduce the size to 20% of it  
+          Then do the same as with not -p
 # Hope you like it. Good luck  
